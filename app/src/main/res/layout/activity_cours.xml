@@ -8,6 +8,47 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#cce3df"
     tools:context="com.example.hugo.afterwork.CoursActivity">
+
+    <TextView
+        android:id="@+id/matiere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texteBlanc"
+        android:text="Prog mobile"
+        android:textSize="@dimen/text_size_regular"
+        android:background="@color/boutonCoursSelect"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/section"
+        android:layout_toEndOf="@+id/section" />
+
+    <TextView
+        android:id="@+id/section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texteBlanc"
+        android:text="AIGLE"
+        android:textSize="@dimen/text_size_regular"
+        android:background="@color/boutonCours"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/niveau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texteBlanc"
+        android:textSize="@dimen/text_size_regular"
+        android:text="Master 1"
+        android:background="@color/boutonCours"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/section" />
 
 </RelativeLayout>

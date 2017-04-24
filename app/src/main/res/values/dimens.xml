@@ -7,6 +7,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="form_input">32dp</dimen>
-    <dimen name="text_size">24dp</dimen>
+    <dimen name="text_size_regular">24dp</dimen>
     <dimen name="text_size_small">16dp</dimen>
+    <dimen name="text_size_large">28dp</dimen>
+    <dimen name="text_size_extraLarge">30dp</dimen>
 </resources>

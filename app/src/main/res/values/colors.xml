@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bouton">#999999</color>
+    <color name="fond">#cce3df</color>
+    <color name="titre">#00365e</color>
+    <color name="cadre">#007ea0</color>
+    <color name="boutonFonce">#666666</color>
+    <color name="plus">#FF9800</color>
+    <color name="boutonRond">#d4e1f5</color>
+    <color name="texteBlanc">#F9FBE7</color>
+    <color name="texteQCM">#007387</color>
+    <color name="boutonCours">#a9c4eb</color>
+    <color name="boutonCoursSelect">#000f77</color>
 </resources>

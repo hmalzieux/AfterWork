@@ -6,4 +6,89 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <!-- Boutons -->
+    <style name="bouton" parent="@android:style/ButtonBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texteBlanc</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="android:background">@color/bouton</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- Boutons noir-->
+    <style name="boutonFonce" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texteBlanc</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:background">@color/boutonFonce</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- Boutons rond-->
+    <style name="boutonRond" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/plus</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:background">@color/boutonRond</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:shape">ring</item>
+    </style>
+
+    <!-- Cadre texte -->
+    <style name="cadreTexte" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texteBlanc</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="android:background">@color/cadre</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- Cadre texte -->
+    <style name="cadreNomAppli" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texteBlanc</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:background">@color/bouton</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- texte titre -->
+    <style name="texteTitre" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/titre</item>
+        <item name="android:textSize">@dimen/text_size_extraLarge</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- texte-->
+    <style name="texte" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- texte QCM-->
+    <style name="texteQCM" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="android:textColor">@color/texteQCM</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
 </resources>
