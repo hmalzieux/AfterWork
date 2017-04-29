@@ -18,4 +18,12 @@
     <string name="error_field_required">Ce champ est requis</string>
     <string name="permission_rationale">"Les autorisations relatives aux contacts sont nécessaires pour fournir la complétion des emails."</string>
     <string name="error_empty_password">Le mot de passe est vide</string>
+    <string name="user_nomprenom">Nom Prenom</string>
+    <string name="user_mail">nom.prenom@umontpellier.fr</string>
+    <string name="connexion">Connexion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nom_matiere">Nom matière</string>
+    <string name="annuler">Annuler</string>
 </resources>

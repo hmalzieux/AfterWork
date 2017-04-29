@@ -14,4 +14,6 @@
     <color name="texteQCM">#007387</color>
     <color name="boutonCours">#a9c4eb</color>
     <color name="boutonCoursSelect">#000f77</color>
+    <color name="blue">#00A6FE</color>
+    <color name="white">#FFFFFF</color>
 </resources>

@@ -1,36 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_menu_drawer">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_matiere"
+            android:icon="@drawable/home"
+            android:title="Matière"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_profil"
+            android:icon="@mipmap/ic_profil"
             android:title="Profil" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_cours"
+            android:icon="@mipmap/ic_cours"
             android:title="Cours" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Matières" />
+            android:id="@+id/nav_qcm"
+            android:icon="@mipmap/ic_quiz"
+            android:title="QCM" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Quizz" />
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Se déconnecter"/>
+
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
-
 </menu>

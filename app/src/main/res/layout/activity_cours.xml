@@ -49,6 +49,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/section" />
+        android:layout_toStartOf="@+id/section"
+        android:layout_toLeftOf="@+id/section" />
 
 </RelativeLayout>

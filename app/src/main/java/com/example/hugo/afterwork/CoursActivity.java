@@ -19,7 +19,7 @@ public class CoursActivity extends AppCompatActivity {
     }
 
     public void addListenerOnButton() {
-        Button = (Button) findViewById(R.id.bouton);
+        /*Button = (Button) findViewById(R.id.bouton);
 
         Button.setOnClickListener(new View.OnClickListener() {
 
@@ -29,5 +29,6 @@ public class CoursActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
-        });
+        });*/
+    }
 }
