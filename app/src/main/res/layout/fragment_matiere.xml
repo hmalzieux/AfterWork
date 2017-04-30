@@ -3,6 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hugo.afterwork.MatiereFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Liste des matières"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"/>
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/gridview_matiere"
@@ -13,6 +23,8 @@
         android:verticalSpacing="20dp"
         android:horizontalSpacing="20dp"
         android:stretchMode="columnWidth"
-        android:gravity="center"/>
-
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/titre"/>
+    </RelativeLayout>
 </FrameLayout>

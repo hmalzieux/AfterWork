@@ -4,11 +4,60 @@
     android:layout_height="match_parent"
     tools:context="com.example.hugo.afterwork.profilFragment"
     android:id="@+id/frame_profil">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear_profil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/user"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:text="Profil Fragment" />
-
+        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+        <TextView
+            android:id="@+id/id_user_nomprenom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_nomprenom"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:textSize="18dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_mail"
+            android:layout_below="@+id/id_user_nomprenom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    </RelativeLayout>
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/linear_profil"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:id="@+id/liste_matiere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liste des matières"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/matieres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/liste_matiere"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="14dp"/>
+    </RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>
