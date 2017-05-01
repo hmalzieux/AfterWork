@@ -3,6 +3,7 @@ package com.example.hugo.afterwork;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,5 +31,14 @@ public class CoursActivity extends AppCompatActivity {
             }
 
         });*/
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            super.onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

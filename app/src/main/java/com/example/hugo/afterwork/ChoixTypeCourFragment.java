@@ -54,21 +54,21 @@ public class ChoixTypeCourFragment extends Fragment {
         button_cour.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        changerActiviteCours(getArguments().getString("Matiere")+", Cours");
+                        changerActiviteCours(getArguments().getString("Matiere")+getString(R.string.filtre_cours));
                     }
                 });
         Button button_td = (Button) view.findViewById(R.id.bouton_td);
         button_td.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                changerActiviteCours(getArguments().getString("Matiere")+", TDs");
+                changerActiviteCours(getArguments().getString("Matiere")+getString(R.string.filtre_tds));
             }
         });
         Button button_tp = (Button) view.findViewById(R.id.bouton_tp);
         button_tp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                changerActiviteCours(getArguments().getString("Matiere")+", TPs");
+                changerActiviteCours(getArguments().getString("Matiere")+getString(R.string.filtre_tps));
             }
         });
         Button button_all = (Button) view.findViewById(R.id.tous_les_cours);

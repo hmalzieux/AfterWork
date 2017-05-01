@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/info"
             android:drawablePadding="10dp"
-            android:text="Les leçons sont filtrées par : "
+            android:text="@string/text_filtre"
             android:background="@color/white"
             android:textColor="@color/blue"
             android:paddingLeft="10dp"/>

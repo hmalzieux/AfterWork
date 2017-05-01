@@ -26,4 +26,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nom_matiere">Nom matière</string>
     <string name="annuler">Annuler</string>
+    <string name="matiere">Matière</string>
+    <string name="cours">Cours</string>
+    <string name="qcm">QCM</string>
+    <string name="profil">Profil</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="text_filtre">Les leçons sont filtrées par :</string>
+    <string name="domaine">\@umontpellier.fr</string>
+    <string name="type_cours">Les types de cours</string>
+    <string name="tds">TDs</string>
+    <string name="tps">TPs</string>
+    <string name="all_cours">Toutes les leçons</string>
+    <string name="list_matiere">Liste des matières</string>
+    <string name="matiere_cours">Matiere du cours</string>
+    <string name="type_du_cours">Type du cours</string>
+    <string name="nom_cours">nom du cours</string>
+    <string name="filtre_cours">, Cours</string>
+    <string name="filtre_tds">, TDs</string>
+    <string name="filtre_tps">, TPs</string>
+    <string name="sans_filtre">Les leçons ne sont pas filtrées</string>
 </resources>

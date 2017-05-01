@@ -7,7 +7,7 @@
         android:id="@+id/cour_nom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="nom du cours"
+        android:text="@string/nom_cours"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"/>
     <TextView
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cour_nom"
         android:layout_marginLeft="40dp"
-        android:text="matiere du cours"
+        android:text="@string/matiere_cours"
         android:textSize="18dp"/>
     <TextView
         android:id="@+id/cours_type"
@@ -24,6 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_below="@+id/cours_matiere"
-        android:text="type du cours"
+        android:text="@string/type_du_cours"
         android:textSize="16dp"/>
 </RelativeLayout>

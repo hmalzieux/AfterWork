@@ -1,9 +1,11 @@
 package com.example.hugo.afterwork;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,12 +20,19 @@ public class ListCoursActivity extends AppCompatActivity {
         if (!filtre.equals("")) {
             info.setText(info.getText()+filtre);
         } else{
-            info.setText("Les leçons ne sont pas filtrées");
+            info.setText(getString(R.string.sans_filtre));
         }
 
         ListView listView = (ListView) findViewById(R.id.listview_cours);
         CoursAdapter adapter = new CoursAdapter(this,cours);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                startActivity(new Intent(ListCoursActivity.this,CoursActivity.class));
+            }
+        });
     }
 
     @Override

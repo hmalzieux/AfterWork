@@ -48,7 +48,7 @@
             android:id="@+id/liste_matiere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Liste des matières"
+            android:text="@string/list_matiere"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/matieres"
