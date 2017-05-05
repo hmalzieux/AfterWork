@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#8b9fab</color>
+    <color name="colorPrimaryDark">#788993</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bouton">#999999</color>
     <color name="fond">#cce3df</color>
@@ -16,4 +16,8 @@
     <color name="boutonCoursSelect">#000f77</color>
     <color name="blue">#00A6FE</color>
     <color name="white">#FFFFFF</color>
+    <color name="fondgris">#bbcfd4</color>
+    <color name="fondgrisTransparent">#966ba2af</color>
+    <color name="fondboutonrose">#b5ff5660</color>
+    <color name="ligneMatiere">#93a8b4</color>
 </resources>

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondgris"
     tools:context="com.example.hugo.afterwork.MatiereFragment">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,20 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_matiere"
+        android:layout_marginTop="15dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:gravity="center_horizontal"/>
+
+    <View
+        android:id="@+id/ligne"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/back_matiere"
+        android:layout_below="@+id/titre"/>
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/gridview_matiere"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textColor="@color/white"
         android:columnWidth="120dp"
         android:numColumns="auto_fit"
-        android:verticalSpacing="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:verticalSpacing="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/fondgris"
         android:horizontalSpacing="20dp"
         android:stretchMode="columnWidth"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_below="@+id/titre"/>
+        android:layout_below="@+id/ligne"/>
     </RelativeLayout>
 </FrameLayout>

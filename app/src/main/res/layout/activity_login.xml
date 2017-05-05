@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/fondgris"
     tools:context="com.example.hugo.afterwork.LoginActivity">
 
     <ProgressBar
@@ -18,15 +19,38 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <TextView
-        android:text="@string/connexion"
+    <!--<TextView
+        android:id="@+id/connexion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewConnexion"
-        android:textSize="24dp"
-        android:gravity="center"/>
+        android:text="@string/connexion"
+        android:layout_marginTop="15dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"/>
 
+    <View
+        android:id="@+id/ligneconnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/back_matiere"
+        android:layout_below="@+id/connexion"/>
+-->
+    <ImageView
+        android:id="@+id/logoUM"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/afterwork"/>
     <ScrollView
+
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -38,45 +62,74 @@
             android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/form_input"
                     android:textSize="@dimen/text_size_small"
                     android:text="@string/prompt_email"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="15dp">
                 <AutoCompleteTextView
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:text="@string/domaine"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:theme="@android:color/white"/>
+            </LinearLayout>
 
             <TextView
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/form_input"
                 android:textSize="@dimen/text_size_small"
                 android:text="@string/prompt_password"/>
-
-            <AutoCompleteTextView
-                android:id="@+id/password"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1" />
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_margin="5dp">
 
+                <AutoCompleteTextView
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:theme="@color/white"/>
+
+            </LinearLayout>
             <Button
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textStyle="bold"
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
+                android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fab_margin"
+                android:background="@color/fondboutonrose"
+                android:layout_marginTop="30dp"
                 android:text="@string/action_sign_in_short"
                 android:layout_gravity="center"
-                android:textStyle="bold"
                 android:textSize="@dimen/text_size_small"/>
 
         </LinearLayout>
+
     </ScrollView>
 </LinearLayout>

@@ -2,30 +2,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondgris"
     tools:context=".ChoixTypeCourFragment">
     <LinearLayout
+
         android:id="@+id/linear_up_arrow"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center_horizontal"
         android:clickable="true">
         <ImageView
-        android:layout_width="30dp"
-        android:layout_height="20dp"
-        android:src="@drawable/up_arrow"/>
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:src="@drawable/up_arrow"/>
+
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relative_nom_matiere">
     <TextView
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:id="@+id/nom_matiere"
         android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/type_cours"
             android:textSize="28dp"
             android:paddingTop="30dp"
-        android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"/>
+        <View
+            android:id="@+id/ligne"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/back_matiere"
+            android:layout_below="@+id/nom_matiere"/>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +52,11 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="30dp">
         <Button
+            android:layout_marginTop="25dp"
+            android:background="@color/fondboutonrose"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/bouton_cour"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -44,6 +68,11 @@
 
             android:paddingTop="30dp"/>
         <Button
+            android:layout_marginTop="25dp"
+            android:background="@color/fondboutonrose"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/bouton_td"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -54,6 +83,11 @@
             android:inputType="textCapSentences"
             android:layout_marginBottom="15dp"/>
         <Button
+            android:layout_marginTop="25dp"
+            android:background="@color/fondboutonrose"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/bouton_tp"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -65,11 +99,15 @@
         </RelativeLayout>
     </RelativeLayout>
     <Button
+        android:background="@color/fondboutonrose"
         android:id="@+id/tous_les_cours"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="@string/all_cours"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="18dp"
         android:inputType="textCapSentences" />
 </FrameLayout>

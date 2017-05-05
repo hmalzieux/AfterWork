@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class ListCoursActivity extends AppCompatActivity {
     String [][] cours = {{"Design Pattern","Ingé Log.","TDs"},{"Factory","Ingé Log.","Cours"},{"Pile","Compilation","TPs"}};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

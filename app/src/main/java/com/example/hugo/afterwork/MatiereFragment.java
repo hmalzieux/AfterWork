@@ -1,6 +1,7 @@
 package com.example.hugo.afterwork;
 
 import android.content.Context;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,11 +13,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
+import static android.content.Context.SENSOR_SERVICE;
+
 
 public class MatiereFragment extends Fragment {
-    String[] matieres = {"Android", "TEST", "Compilation", "Ingé Log." , "TEST2"};
-
+    String[] matieres = {"PROG. MOBILE", "EPISTEMOLOGIE", "ARCHI. N-TIERS", "INGE. LOGICIELLE" , "GESTION DE PROJET","ECD"};
     private OnFragmentInteractionListener mListener;
+
 
     public MatiereFragment() {
         // Required empty public constructor
@@ -25,7 +28,9 @@ public class MatiereFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
