@@ -42,9 +42,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_PRENOM = "prenom";
     private static final String KEY_MAIL = "mail";
     private static final String KEY_MOTDEPASSE = "motDePasse";
-    private static final String KEY_NOTE = "note";
     private static final String KEY_IDQCM = "idQcm";
     private static final String KEY_TITREQCM = "titreQcm";
+    private static final String KEY_NOTE = "note";
     private static final String KEY_IDQUESTION = "idQuestion";
     private static final String KEY_TITREQUESTION = "titreQuestion";
     private static final String KEY_REPONSE1 = "reponse1";
@@ -65,14 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SECTION);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MATIERE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_UTILISATEUR);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QCM);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_AREPONDU);
-
+        dropDB(db);
         // Create tables again
         onCreate(db);
     }
@@ -113,15 +106,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_QCM_TABLE);
 
         String CREATE_QUESTION_TABLE = "CREATE TABLE " + TABLE_QUESTION + "("
-                + KEY_IDQUESTION + " INTEGER PRIMARY KEY, "
-                + KEY_IDQCM + " INTEGER NOT NULL, FOREIGN KEY ("+KEY_IDQCM+") REFERENCES " + TABLE_QCM + "("+KEY_IDQCM+"), "
-                + KEY_TITREQUESTION + " TEXT, " + KEY_REPONSE1 + " TEXT, " + KEY_REPONSE2 + " TEXT, " + KEY_REPONSE3 + " TEXT, " + KEY_REPONSEJUSTE + " TEXT);";
-//        db.execSQL(CREATE_QUESTION_TABLE);
+                + KEY_IDQUESTION + " INTEGER, "
+                + KEY_IDQCM + " INTEGER NOT NULL, "
+                + KEY_TITREQUESTION + " TEXT, " + KEY_REPONSE1 + " TEXT, " + KEY_REPONSE2 + " TEXT, "+ KEY_REPONSE3 + " TEXT, "
+                + KEY_REPONSEJUSTE + " TEXT, "
+                +"PRIMARY KEY("+KEY_IDQUESTION+"), "
+                + "FOREIGN KEY ("+KEY_IDQCM+") REFERENCES " + TABLE_QCM + "("+KEY_IDQCM+")"
+                +");";
+        Log.d("CREATE_QUESTION_TABLE",CREATE_QUESTION_TABLE);
+        db.execSQL(CREATE_QUESTION_TABLE);
 
         String CREATE_AREPONDU_TABLE = "CREATE TABLE " + TABLE_AREPONDU + "("
-                + KEY_IDUTILISATEUR + " INTEGER PRIMARY KEY, FOREIGN KEY ("+KEY_IDUTILISATEUR+") REFERENCES " + TABLE_UTILISATEUR + " ("+KEY_IDUTILISATEUR+"));"
-                + KEY_IDQCM + " INTEGER PRIMARY KEY, FOREIGN KEY ("+KEY_IDQCM+") REFERENCES " + TABLE_QCM + " ("+KEY_IDQCM+"));"
-                + KEY_NOTE + "INTEGER NOT NULL" + ")";
+                + KEY_IDUTILISATEUR + " INTEGER, "
+                + KEY_IDQCM + " INTEGER, "
+                + KEY_NOTE + " REAL NOT NULL, "
+                +"PRIMARY KEY("+KEY_IDUTILISATEUR+","+KEY_IDQCM+"), "
+                +"FOREIGN KEY ("+KEY_IDUTILISATEUR+") REFERENCES " + TABLE_UTILISATEUR + " ("+KEY_IDUTILISATEUR+"), "
+                +"FOREIGN KEY ("+KEY_IDQCM+") REFERENCES " + TABLE_QCM + " ("+KEY_IDQCM+")"
+                +");";
         db.execSQL(CREATE_AREPONDU_TABLE);
 
         Log.d("Tables : ","Created!");
@@ -163,12 +165,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Insertion des qcm
         Log.d("Insert: ", "qcm ..");
         this.addQcm(new Qcm(1, "Archi n tiers : le test ultime"));
-        this.addQcm(new Qcm(2, "les basiques de l'android'"));
+        this.addQcm(new Qcm(2, "les basiques de l'android"));
         this.addQcm(new Qcm(3, "Prog agent, pour aller plus loin"));
         this.addQcm(new Qcm(4, "test connaissances sur Weka"));
 
         // Insertion des questions
-        Log.d("Insert: ", "questions ..");/*
+        Log.d("Insert: ", "questions ..");/**/
         this.addQuestion(new Question(1, 1, "Le rmi est utilisable sur quel langage ?", "C++", "Java", "Ada", "Java"));
         this.addQuestion(new Question(2, 1, "VisualStudio permet-il de faire du webservice ?", "Oui", "Non", "Peut être", "Oui"));
         this.addQuestion(new Question(3, 2, "Comment faire du multi langage ?", "Fichiers string différents", "Developper une appli par langue", "L'appli s'adapte suivant le pays", "Fichiers string différents"));
@@ -177,7 +179,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         this.addQuestion(new Question(6, 3, "Lapins VS loups, qui gagne ?", "lapins", "loups", "aucun", "aucun"));
         this.addQuestion(new Question(7, 4, "Quel est l'algo le plus rapide ?'", "J48", "NaiveBayes", "NBtree", "NaiveBayes"));
         this.addQuestion(new Question(8, 4, "Quel prétraitement est le moins efficace ?", "Verbe", "Adjectif", "Stop words", "Verbe"));
-*/
+
+        // Insertion des a_repondu
+        Log.d("Insert: ", "a_repondu ..");
+      /*  this.addARepondu(new ARepondu(5,1,8));
+        this.addARepondu(new ARepondu(5,4,3));
+        this.addARepondu(new ARepondu(5,3,10));*/
     }
     public void addSection(Section section) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -283,58 +290,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cours;
     }
 
-    public List<Qcm> getAllQCM(long idUtilisateur) {
-            List<Qcm> qcmList = new ArrayList<Qcm>();
+
+    public ArrayList<String[]> getQuestion(String idQcm) {
+        ArrayList<String[]> res = new ArrayList<String[]>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_QCM + TABLE_AREPONDU + " WHERE " + TABLE_QCM +"."+ KEY_IDQCM +" = "+ TABLE_AREPONDU +"."+ KEY_IDQCM
-                +" AND "+TABLE_AREPONDU +"."+ KEY_IDQCM +" != "+idUtilisateur;
-        Log.d("getAllQCM", selectQuery);
+
+        String selectQuery = "SELECT "+KEY_TITREQUESTION+", "+KEY_REPONSE1+", "+KEY_REPONSE2+", "+KEY_REPONSE3+", "+KEY_REPONSEJUSTE+" FROM " + TABLE_QUESTION +" WHERE " + KEY_IDQCM +" = "+ idQcm;
+        Log.v("selectQuery",selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Qcm qcm = new Qcm();
-                qcm.setID(Integer.parseInt(cursor.getString(0)));
-                qcm.setTitre(cursor.getString(1));
-
-                // Adding qcm to list
-                qcmList.add(qcm);
-            } while (cursor.moveToNext());
-        }
-
-        // return qcm list
-        return qcmList;
-    }
-
-    public List<Question> getQuestion(long idQcm) {
-            List<Question> questionList = new ArrayList<Question>();
-        // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_QUESTION +"WHERE " + KEY_IDQCM +" = "+ idQcm;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                Question question = new Question();
-                question.setID(Integer.parseInt(cursor.getString(0)));
-                question.setIdQcm(Integer.parseInt(cursor.getString(1)));
-                question.setTitre(cursor.getString(2));
-                question.setReponse1(cursor.getString(3));
-                question.setReponse2(cursor.getString(4));
-                question.setReponse3(cursor.getString(5));
-                question.setReponseJuste(cursor.getString(6));
-
-                // Adding question to list
-                questionList.add(question);
+                res.add(new String[]{cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)});
             } while (cursor.moveToNext());
         }
 
         // return question list
-        return questionList;
+        return res;
     }
 
     public int getConnection(String email, String password) {
@@ -412,8 +386,55 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String[]> res= new ArrayList<String[]>();
         if (cursor.moveToFirst()) {
             do {
-                Log.d("res LIST COURS", cursor.getString(0)+cursor.getString(1)+cursor.getString(2));
                 res.add(new String[]{cursor.getString(0),cursor.getString(1),cursor.getString(2)});
+            } while (cursor.moveToNext());
+        }
+        return res;
+    }
+
+    public ArrayList<String[]> getListQcmDone(int idUser){
+        String selectQuery = "SELECT "+TABLE_QCM+"."+KEY_TITREQCM+", "+TABLE_AREPONDU+"."+KEY_NOTE
+                +" FROM "+ TABLE_QCM +", "+TABLE_UTILISATEUR +", "+TABLE_AREPONDU
+                +" WHERE " + TABLE_QCM+"."+KEY_IDQCM+" = "+ TABLE_AREPONDU+"."+KEY_IDQCM
+                +" AND " + TABLE_AREPONDU+"."+KEY_IDUTILISATEUR+" = "+ TABLE_UTILISATEUR+"."+KEY_IDUTILISATEUR
+                +" AND "+TABLE_UTILISATEUR+"."+KEY_IDUTILISATEUR+" = "+ idUser +" ;";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        ArrayList<String[]> res= new ArrayList<String[]>();
+        if (cursor.moveToFirst()) {
+            do {
+                res.add(new String[]{cursor.getString(0),cursor.getString(1)});
+            } while (cursor.moveToNext());
+        }
+        return res;
+    }
+
+    public ArrayList<String[]> getListQcmNew(int idUser){
+        String selectTotal = "SELECT "+TABLE_QCM+"."+KEY_IDQCM
+                +" FROM "+ TABLE_QCM;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursorTotal = db.rawQuery(selectTotal, null);
+
+        String selectRep = "SELECT "+TABLE_AREPONDU+"."+KEY_IDQCM
+                +" FROM "+ TABLE_AREPONDU
+                +" WHERE " +TABLE_AREPONDU+"."+KEY_IDUTILISATEUR+" = "+ idUser ;
+        Cursor cursorRep = db.rawQuery(selectRep, null);
+        String[] idQcm = new String[cursorTotal.getCount()];
+        if (cursorRep.moveToFirst()) {
+            do {
+                idQcm[Integer.parseInt(cursorRep.getString(0))-1] = cursorRep.getString(0);
+            } while (cursorRep.moveToNext());
+        }
+
+        String selectQcm = "SELECT "+TABLE_QCM+"."+KEY_TITREQCM+", "+TABLE_QCM+"."+KEY_IDQCM+" FROM "+ TABLE_QCM ;
+        Cursor cursor = db.rawQuery(selectQcm, null);
+        ArrayList<String[]> res= new ArrayList<String[]>();
+        if (cursor.moveToFirst()) {
+            do {
+                if(!cursor.getString(1).equals(idQcm[Integer.parseInt(cursor.getString(1))-1])) {
+                    res.add(new String[]{cursor.getString(0), cursor.getString(1)});
+                }
             } while (cursor.moveToNext());
         }
         return res;

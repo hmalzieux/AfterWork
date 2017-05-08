@@ -5,21 +5,21 @@ public class ARepondu {
     //private variables
     private long idUtilisateur;
     private long idQcm;
-    private int note;
+    private float note;
 
     // Empty constructor
     public ARepondu(){
 
     }
     // constructor
-    public ARepondu(long idUtilisateur, long idQcm, int note){
+    public ARepondu(long idUtilisateur, long idQcm, float note){
         this.idUtilisateur = idUtilisateur;
         this.idQcm = idQcm;
         this.note = note;
     }
 
     // constructor
-    public ARepondu(int note){
+    public ARepondu(float note){
         this.note = note;
     }
 
@@ -44,12 +44,12 @@ public class ARepondu {
     }
 
     // getting note
-    public int getNote(){
+    public float getNote(){
         return this.note;
     }
 
     // setting note
-    public void setNote(int note){
+    public void setNote(float note){
         this.note = note;
     }
 }
