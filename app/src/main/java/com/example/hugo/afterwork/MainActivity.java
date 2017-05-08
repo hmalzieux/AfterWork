@@ -2,11 +2,13 @@ package com.example.hugo.afterwork;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -19,10 +21,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
+
+import com.example.hugo.afterwork.androidsqlite.DatabaseHandler;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private SensorActivity sensor;
+    private DatabaseHandler myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,6 +48,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
+
+        SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
+        myDb = new DatabaseHandler(this);
+        String[] res = myDb.getInfoUser(sharedPreferences.getInt("idUser", -1));
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView nom_prenom = (TextView) headerView.findViewById(R.id.nav_nom_prenom);
+        TextView mail = (TextView) headerView.findViewById(R.id.nav_mail);
+
+        nom_prenom.setText(res[0]+" "+res[1]);
+        mail.setText(res[2]);
     }
 
     public void onResume() {

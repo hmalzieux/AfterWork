@@ -37,7 +37,7 @@
     <string name="tds">TDs</string>
     <string name="tps">TPs</string>
     <string name="all_cours">Toutes les leçons</string>
-    <string name="list_matiere">Liste des matières</string>
+    <string name="list_matiere">Liste des matières :</string>
     <string name="matiere_cours">Matiere du cours</string>
     <string name="type_du_cours">Type du cours</string>
     <string name="nom_cours">nom du cours</string>
@@ -48,4 +48,15 @@
     <string name="liste_cours">Liste des cours</string>
     <string name="title_activity_sensor">SensorActivity</string>
 
+    <string name="nouveau_qcm">Faire un nouveau QCM</string>
+    <string name="bouton_ancien_qcm">Voir les résultats</string>
+    <string name="error_invalid_email_or_password">Erreur : Votre mail ou mot de passe est invalide!</string>
+    <string name="text_parcours">Parcours : </string>
+    <string name="liste_qcm_done">Résultats des QCM</string>
+    <string name="note_qcm">/10</string>
+    <string name="nom_qcm_done">Nom QCM</string>
+    <string name="titre_qcm_new">Choisissez un nouveau QCM</string>
+    <string name="qcm_non_valide">Vous n\'avez pas validé toutes les questions!</string>
+    <string name="list_qcm_vide">Aucun QCM disponible</string>
+    <string name="list_cours_vide">Aucun cours disponible</string>
 </resources>

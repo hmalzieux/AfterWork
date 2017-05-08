@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_list_cours"
+    android:id="@+id/activity_list_qcm_new"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondgris"
-    tools:context="com.example.hugo.afterwork.ListCoursActivity">
-
+    tools:context="com.example.hugo.afterwork.ListQcmNewActivity">
     <LinearLayout
-        android:id="@+id/linear_liste_cours"
+        android:id="@+id/linear_liste_qcm_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/titre"
+            android:id="@+id/titre_qcm_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/liste_cours"
+            android:text="@string/titre_qcm_new"
             android:layout_marginTop="15dp"
             android:textAllCaps="true"
             android:textStyle="bold"
@@ -35,36 +34,12 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/back_matiere"
-        android:layout_below="@+id/linear_liste_cours"/>
-
-    <LinearLayout
-        android:id="@+id/linear_info"
+        android:layout_below="@+id/linear_liste_qcm_new"/>
+    <ListView
+        android:id="@+id/listview_qcm_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ligne">
-
-        <TextView
-            android:id="@+id/filtre_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/info"
-            android:drawablePadding="10dp"
-            android:padding="1dp"
-            android:textColor="@color/blue"
-            android:background="@color/white"
-            android:text="@string/text_filtre"
-            android:paddingLeft="10dp"/>
-    </LinearLayout>
-
-    <ListView
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:id="@+id/listview_cours"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/linear_info"/>
+        android:layout_below="@+id/ligne" />
     <TextView
         android:id="@+id/list_vide"
         android:layout_width="wrap_content"
@@ -74,5 +49,6 @@
         android:textColor="@color/white"
         android:textSize="18dp"
         android:visibility="gone"
-        android:text="@string/list_cours_vide"/>
+        android:text="@string/list_qcm_vide"/>
+
 </RelativeLayout>

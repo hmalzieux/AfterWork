@@ -12,11 +12,11 @@ import java.util.ArrayList;
 /**
  * Created by hugo on 28/04/2017.
  */
-public class CoursAdapter extends BaseAdapter {
+public class QcmNewAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<String[]> contenu;
     private LayoutInflater inflater;
-    public CoursAdapter(Context c, ArrayList<String[]> contenu) {
+    public QcmNewAdapter(Context c, ArrayList<String[]> contenu) {
         mContext = c;
         this.contenu = contenu;
     }
@@ -39,14 +39,12 @@ public class CoursAdapter extends BaseAdapter {
 
         if (convertView == null) {
             inflater =(LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            listview = inflater.inflate(R.layout.item_cours, null);
+            listview = inflater.inflate(R.layout.item_qcm_new, null);
         }
-        TextView nom = (TextView) listview.findViewById(R.id.cour_nom);
-        TextView matiere = (TextView) listview.findViewById(R.id.cours_matiere);
-        TextView type = (TextView) listview.findViewById(R.id.cours_type);
+        TextView nom = (TextView) listview.findViewById(R.id.nom_qcm_new);
+        TextView id = (TextView) listview.findViewById(R.id.qcm_id);
         nom.setText(contenu.get(position)[0]);
-        matiere.setText(contenu.get(position)[1]);
-        type.setText(contenu.get(position)[2]);
+        id.setText(contenu.get(position)[1]);
         return listview;
     }
 }

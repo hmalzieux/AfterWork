@@ -1,6 +1,8 @@
 package com.example.hugo.afterwork;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +14,11 @@ import java.util.ArrayList;
 /**
  * Created by hugo on 28/04/2017.
  */
-public class CoursAdapter extends BaseAdapter {
+public class QcmDoneAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<String[]> contenu;
     private LayoutInflater inflater;
-    public CoursAdapter(Context c, ArrayList<String[]> contenu) {
+    public QcmDoneAdapter(Context c, ArrayList<String[]> contenu) {
         mContext = c;
         this.contenu = contenu;
     }
@@ -39,14 +41,13 @@ public class CoursAdapter extends BaseAdapter {
 
         if (convertView == null) {
             inflater =(LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            listview = inflater.inflate(R.layout.item_cours, null);
+            listview = inflater.inflate(R.layout.item_qcm_done, null);
         }
-        TextView nom = (TextView) listview.findViewById(R.id.cour_nom);
-        TextView matiere = (TextView) listview.findViewById(R.id.cours_matiere);
-        TextView type = (TextView) listview.findViewById(R.id.cours_type);
+        TextView nom = (TextView) listview.findViewById(R.id.nom_qcm_done);
+        TextView note = (TextView) listview.findViewById(R.id.note_qcm);
         nom.setText(contenu.get(position)[0]);
-        matiere.setText(contenu.get(position)[1]);
-        type.setText(contenu.get(position)[2]);
+        note.setText(contenu.get(position)[1]);
+        note.setText(note.getText()+"/10");
         return listview;
     }
 }

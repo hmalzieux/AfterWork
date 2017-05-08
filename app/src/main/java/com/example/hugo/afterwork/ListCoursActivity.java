@@ -1,6 +1,9 @@
 package com.example.hugo.afterwork;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -9,9 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ListCoursActivity extends AppCompatActivity {
-    String [][] cours = {{"Design Pattern","Ingé Log.","TDs"},{"Factory","Ingé Log.","Cours"},{"Pile","Compilation","TPs"}};
+import com.example.hugo.afterwork.androidsqlite.DatabaseHandler;
 
+import java.util.ArrayList;
+
+public class ListCoursActivity extends AppCompatActivity {
+    ArrayList<String[]> cours;
+    private DatabaseHandler myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,10 +26,16 @@ public class ListCoursActivity extends AppCompatActivity {
         TextView info = (TextView) findViewById(R.id.filtre_info);
         String filtre = getIntent().getExtras().getString("filtre");
         if (!filtre.equals("")) {
-            info.setText(info.getText()+filtre);
+            info.setText(info.getText()+" "+filtre);
         } else{
             info.setText(getString(R.string.sans_filtre));
         }
+
+        //BD
+        SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
+
+        myDb = new DatabaseHandler(this);
+        cours = myDb.getListCours(sharedPreferences.getInt("idUser", -1),filtre);
 
         ListView listView = (ListView) findViewById(R.id.listview_cours);
         CoursAdapter adapter = new CoursAdapter(this,cours);
@@ -34,6 +47,9 @@ public class ListCoursActivity extends AppCompatActivity {
                 startActivity(new Intent(ListCoursActivity.this,CoursActivity.class));
             }
         });
+        if (listView.getCount() == 0){
+            findViewById(R.id.list_vide).setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

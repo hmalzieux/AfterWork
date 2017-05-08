@@ -2,10 +2,12 @@ package com.example.hugo.afterwork;
 
 import android.content.Context;
 import android.hardware.SensorManager;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +16,16 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 import static android.content.Context.SENSOR_SERVICE;
+import com.example.hugo.afterwork.androidsqlite.DatabaseHandler;
+
+import java.util.ArrayList;
 
 
 public class MatiereFragment extends Fragment {
-    String[] matieres = {"PROG. MOBILE", "EPISTEMOLOGIE", "ARCHI. N-TIERS", "INGE. LOGICIELLE" , "GESTION DE PROJET","ECD"};
+    private ArrayList<String> matieres;
+    private DatabaseHandler myDb;
+
+
     private OnFragmentInteractionListener mListener;
 
 
@@ -29,6 +37,9 @@ public class MatiereFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("idUser", Context.MODE_PRIVATE);
+        myDb = new DatabaseHandler(getActivity());
+        matieres = myDb.getNamesMatiere(sharedPreferences.getInt("idUser", -1));
     }
 
 
@@ -48,14 +59,18 @@ public class MatiereFragment extends Fragment {
             {
                 ChoixTypeCourFragment dest = new ChoixTypeCourFragment();
                 Bundle args = new Bundle();
-                args.putString("Matiere", matieres[position]);
+                args.putString("Matiere", matieres.get(position));
                 dest.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.addToBackStack(null);
                 ft.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top);
                 ft.replace(R.id.content_main, dest);
                 ft.commit();
             }
         });
+        if (gridview.getCount() == 0){
+            view.findViewById(R.id.list_vide).setVisibility(View.VISIBLE);
+        }
 
         return view;
     }

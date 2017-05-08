@@ -10,38 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/fondgris"
     tools:context="com.example.hugo.afterwork.LoginActivity">
-
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
-    <!--<TextView
-        android:id="@+id/connexion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/connexion"
-        android:layout_marginTop="15dp"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"/>
-
-    <View
-        android:id="@+id/ligneconnexion"
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/back_matiere"
-        android:layout_below="@+id/connexion"/>
--->
     <ImageView
         android:id="@+id/logoUM"
         android:layout_width="120dp"
@@ -49,8 +17,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/afterwork"/>
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
     <ScrollView
-
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -59,6 +33,8 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
 
                 <TextView

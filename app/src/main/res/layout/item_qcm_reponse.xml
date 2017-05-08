@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:textAppearance="@style/texteQCM"
+        android:text="Question 1 : première question ?" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/question"
+        android:background="@color/cadre"
+        android:id="@+id/radioGroup">
+
+        <RadioButton android:id="@+id/radio_r1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="réponse 1"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/question1"
+            android:layout_alignLeft="@+id/boutonEnvoiQCM"
+            android:textSize="17dp"
+            android:layout_marginLeft="15dp"
+            android:layout_alignStart="@+id/boutonEnvoiQCM" />
+
+        <RadioButton android:id="@+id/radio_r2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="réponse 2"
+            android:layout_below="@+id/radio_r2"
+            android:layout_alignLeft="@+id/radio_r2"
+            android:layout_alignStart="@+id/radio_r2"
+            android:textSize="17dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp" />
+
+        <RadioButton android:id="@+id/radio_r3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="réponse 3"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="17dp"
+            android:layout_below="@+id/radio_r1"
+            android:layout_alignLeft="@+id/radio_r1"
+            android:layout_alignStart="@+id/radio_r1" />
+    </RadioGroup>
+    <TextView android:id="@+id/radio_reponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="16dp"
+        android:textColor="@color/texteBlanc"
+        android:background="@color/blue"
+        android:text="réponse 2"/>
+</LinearLayout>

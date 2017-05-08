@@ -20,4 +20,6 @@
     <color name="fondgrisTransparent">#966ba2af</color>
     <color name="fondboutonrose">#b5ff5660</color>
     <color name="ligneMatiere">#93a8b4</color>
+    <color name="redAlert">#F44336</color>
+    <color name="greenAlert">#CDDC39</color>
 </resources>

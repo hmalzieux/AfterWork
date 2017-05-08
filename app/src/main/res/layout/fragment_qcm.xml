@@ -4,9 +4,46 @@
     android:layout_height="match_parent"
     tools:context="com.example.hugo.afterwork.qcmFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative_nom_matiere">
     <TextView
+        android:id="@+id/nom_matiere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/qcm"
+        android:textSize="28dp"
+        android:paddingTop="30dp"
+        android:gravity="center_horizontal"/>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment QCM" />
+        android:layout_below="@+id/nom_matiere"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+    <Button
+        android:id="@+id/bouton_nouveau_qcm"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nouveau_qcm"
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:inputType="textCapSentences"
+        android:layout_marginBottom="15dp"
+
+        android:paddingTop="30dp"/>
+    <Button
+        android:id="@+id/bouton_ancien_qcm"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bouton_ancien_qcm"
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:layout_below="@+id/bouton_nouveau_qcm"
+        android:inputType="textCapSentences"
+        android:layout_marginBottom="15dp"/>
+    </RelativeLayout>
+    </RelativeLayout>
 
 </FrameLayout>
