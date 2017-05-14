@@ -139,40 +139,64 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Insertion des matieres
         Log.d("Insert: ", "matieres ..");
-        this.addMatiere(new Matiere(1, "Archi N Tiers", 1));
-        this.addMatiere(new Matiere(2, "ECD", 3));
-        this.addMatiere(new Matiere(3, "Android", 1));
-        this.addMatiere(new Matiere(4, "Prog Agent", 2));
-        this.addMatiere(new Matiere(5, "IHM", 2));
-        this.addMatiere(new Matiere(6, "BDA", 3));
+        this.addMatiere(new Matiere(1, "Architecture N-Tiers", 1));
+        this.addMatiere(new Matiere(2, "Extraction des Connaissances dans les données", 1));
+        this.addMatiere(new Matiere(3, "Programmation Mobile", 1));
+        this.addMatiere(new Matiere(4, "Spécification Formelles, Vérification, Validation", 1));
+        this.addMatiere(new Matiere(5, "Gestion de Projet", 1));
+        this.addMatiere(new Matiere(6, "Base de Données Avancées", 1));
+        this.addMatiere(new Matiere(7, "Web Sémantique", 2));
 
         // Insertion des cours
         Log.d("Insert: ", "cours ..");
-        this.addCours(new Cours(1, "TP1 : les termites", "TPs", "", 4));
-        this.addCours(new Cours(2, "TP3 : WebService", "TPs", "", 1));
-        this.addCours(new Cours(3, "Video Ted conférence", "Cours", "", 5));
-        this.addCours(new Cours(4, "TD3 : la base de données sqlite", "TDs", "", 3));
-        this.addCours(new Cours(5, "TD1 : les tables", "TDs", "", 6));
+        this.addCours(new Cours(1, "Introduction", "Cours", "", 1));
+        this.addCours(new Cours(1, "Patrons classiques", "Cours", "", 1));
+        this.addCours(new Cours(1, "Cours RMI", "Cours", "", 1));
+        this.addCours(new Cours(1, "Intro .Net", "Cours", "", 1));
+        this.addCours(new Cours(1, "Intro C#", "Cours", "", 1));
+        this.addCours(new Cours(1, "Cours WS", "Cours", "", 1));
+        this.addCours(new Cours(1, "Cours WCF", "Cours", "", 1));
+
+        this.addCours(new Cours(1, "Cours1 : Recherche d'information", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 2: Introduction au KDD", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 3: Classification (Apprentissage supervisé)", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 4: Clustering", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 5 - Extraction de motifs - les règles d'associations", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 6: Text Mining ", "Cours", "", 2));
+        this.addCours(new Cours(1, "Cours 7: Ontology Learning and Named Entity Recognition", "Cours", "", 2));
+
+        this.addCours(new Cours(1, "TD RMI", "TDs", "", 1));
+        this.addCours(new Cours(1, "TP RMI", "TPs", "", 1));
+        this.addCours(new Cours(1, "TP WCF", "TPs", "", 1));
+
+        this.addCours(new Cours(1, "TP1 : exercices d'initiation à Weka", "TPs", "", 2));
+
+
 
         // Insertion des utilisateurs
         Log.d("Insert: ", "utilisateurs ..");
-        this.addUtilisateur(new Utilisateur(1, "Dupond", "Pierre", "pierredupond@umontpellier.fr", "pierrodu34", 1));
-        this.addUtilisateur(new Utilisateur(2, "Cotecha", "Tibo", "tibolecotecha@umontpellier.fr", "123456", 2));
-        this.addUtilisateur(new Utilisateur(3, "Lebon", "Lodi", "lodilebon@umontpellier.fr", "ilovekeke", 3));
-        this.addUtilisateur(new Utilisateur(4, "Moliere", "Momo", "momix@umontpellier.fr", "poulx4ever", 4));
-        this.addUtilisateur(new Utilisateur(5, "Admin", "admin", "@umontpellier.fr", "aaaaaa", 3));
+        this.addUtilisateur(new Utilisateur(1, "Dupond", "Pierre", "pierre.dupond@umontpellier.fr", "azerty", 1));
+        this.addUtilisateur(new Utilisateur(2, "Calude", "Jean", "jean.calude@umontpellier.fr", "azerty", 2));
+        this.addUtilisateur(new Utilisateur(3, "Durand", "Gérard", "gerard.durand@umontpellier.fr", "azerty", 3));
+        this.addUtilisateur(new Utilisateur(4, "Baudelaire", "Charles", "charles.baudelaire@umontpellier.fr", "azerty", 4));
+        this.addUtilisateur(new Utilisateur(5, "Admin", "admin", "@umontpellier.fr", "aaaaaa", 1));
 
         // Insertion des qcm
         Log.d("Insert: ", "qcm ..");
-        this.addQcm(new Qcm(1, "Archi n tiers : le test ultime"));
+        this.addQcm(new Qcm(1, "Java RMI"));
         this.addQcm(new Qcm(2, "les basiques de l'android"));
         this.addQcm(new Qcm(3, "Prog agent, pour aller plus loin"));
         this.addQcm(new Qcm(4, "test connaissances sur Weka"));
 
         // Insertion des questions
         Log.d("Insert: ", "questions ..");/**/
-        this.addQuestion(new Question(1, 1, "Le rmi est utilisable sur quel langage ?", "C++", "Java", "Ada", "Java"));
-        this.addQuestion(new Question(2, 1, "VisualStudio permet-il de faire du webservice ?", "Oui", "Non", "Peut être", "Oui"));
+        this.addQuestion(new Question(1, 1, "En RMI, un objet distribué", "est un objet qui hérite de RemoteObject", "est un objet qui implémente une interface de méthode distante ", "est un objet qui encapsule un objet qui assure la communication ", "est un objet qui implémente une interface de méthode distante "));
+        this.addQuestion(new Question(2, 1, "L'adaptateur en Java RMI est un process qui s'exécute en dehors de toute JVM ", "Oui", "Non", "Pas toujours", "Non"));
+        this.addQuestion(new Question(3, 1, "L’instruction lookup : ", "retourne un stub", "retourne un skeleton", "retourne un objet distribué", "retourne un stub"));
+        this.addQuestion(new Question(4, 1, "L’instruction bind : ", "permet de créer un objet distribué", "permet d'enregistrer un objet distribué dans un adaptateur ", "alloue un port de communication pour l'objet distribué ", "permet d'enregistrer un objet distribué dans un adaptateur "));
+        this.addQuestion(new Question(5, 1, "Un objet distribué est un serveur de socket dont le port est déterminé par défaut par la classe UnicastRemoteObject ", "Oui", "Non", "Cela dépend", "Oui"));
+        this.addQuestion(new Question(6, 1, "L'interface d'un objet distribué définit", "les prototypes de toutes les méthodes de l'objet distribué ", "les prototypes des méthodes distantes de l'objet distribué ", "ni l'un ni l'autre", "les prototypes des méthodes distantes de l'objet distribué "));
+
         this.addQuestion(new Question(3, 2, "Comment faire du multi langage ?", "Fichiers string différents", "Developper une appli par langue", "L'appli s'adapte suivant le pays", "Fichiers string différents"));
         this.addQuestion(new Question(4, 2, "Comment s'appelle la bd propre à android ?'", "Androidbd", "Magento", "SQLite", "SQLite"));
         this.addQuestion(new Question(5, 2, "Comment simuler l'action d'un bouton ?", "Intent", "Fragment", "Capteur", "Intent"));

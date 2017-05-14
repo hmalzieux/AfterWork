@@ -41,8 +41,10 @@
         <activity
             android:name=".CoursActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ListQcmNewActivity" />
-        <activity android:name=".ListQcmDoneActivity"/>
+        <activity android:name=".ListQcmNewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListQcmDoneActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

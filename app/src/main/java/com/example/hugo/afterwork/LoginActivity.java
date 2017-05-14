@@ -90,10 +90,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         myDb = new DatabaseHandler(this);
-        /* Réinitialiser la BD
+        // Réinitialiser la BD
         myDb.dropDB(myDb.getWritableDatabase());
         myDb.createTables(myDb.getWritableDatabase());
-        myDb.defaultData();*/
+        myDb.defaultData();
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();

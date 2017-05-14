@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondgris"
     tools:context="com.example.hugo.afterwork.qcmFragment">
 
     <RelativeLayout
@@ -12,10 +13,24 @@
         android:id="@+id/nom_matiere"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:text="@string/qcm"
         android:textSize="28dp"
         android:paddingTop="30dp"
         android:gravity="center_horizontal"/>
+
+    <View
+        android:id="@+id/ligne"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/back_matiere"
+        android:layout_below="@+id/nom_matiere"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,17 +42,21 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/nouveau_qcm"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/fondboutonrose"
         android:textSize="18dp"
         android:padding="10dp"
         android:inputType="textCapSentences"
-        android:layout_marginBottom="15dp"
-
-        android:paddingTop="30dp"/>
+        android:layout_marginBottom="15dp" />
     <Button
         android:id="@+id/bouton_ancien_qcm"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/bouton_ancien_qcm"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/fondboutonrose"
         android:textSize="18dp"
         android:padding="10dp"
         android:layout_below="@+id/bouton_nouveau_qcm"

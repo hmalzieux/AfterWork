@@ -18,8 +18,11 @@
     <color name="white">#FFFFFF</color>
     <color name="fondgris">#bbcfd4</color>
     <color name="fondgrisTransparent">#966ba2af</color>
+    <color name="fondgris_radiobutton">#afc2c7</color>
     <color name="fondboutonrose">#b5ff5660</color>
     <color name="ligneMatiere">#93a8b4</color>
-    <color name="redAlert">#F44336</color>
+    <color name="redAlert">#ed6569</color>
     <color name="greenAlert">#CDDC39</color>
+    <color name="noir">#000000</color>
+    <color name="couleur_radio_bouton">#ec1e21</color>
 </resources>

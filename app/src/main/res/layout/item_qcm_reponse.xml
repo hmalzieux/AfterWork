@@ -2,29 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/fondgris"
+    android:layout_marginBottom="10dp"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/question"
+        android:background="@color/fondgris"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:textAppearance="@style/texteQCM"
-        android:text="Question 1 : première question ?" />
+        android:text="Question 1 : première question ?"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/ligne"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/back_matiere"
+        android:layout_below="@+id/question"/>
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/fondgris"
         android:layout_below="@+id/question"
-        android:background="@color/cadre"
         android:id="@+id/radioGroup">
+
 
         <RadioButton android:id="@+id/radio_r1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="réponse 1"
+            android:paddingLeft="10dp"
             android:layout_marginTop="14dp"
             android:layout_below="@+id/question1"
             android:layout_alignLeft="@+id/boutonEnvoiQCM"
@@ -32,21 +52,45 @@
             android:layout_marginLeft="15dp"
             android:layout_alignStart="@+id/boutonEnvoiQCM" />
 
+        <View
+            android:id="@+id/ligne2"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/back_matiere"
+            android:layout_below="@+id/question"/>
+
         <RadioButton android:id="@+id/radio_r2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="réponse 2"
+            android:paddingLeft="10dp"
             android:layout_below="@+id/radio_r2"
             android:layout_alignLeft="@+id/radio_r2"
             android:layout_alignStart="@+id/radio_r2"
             android:textSize="17dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp" />
+        <View
+            android:id="@+id/ligne3"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/back_matiere"
+            android:layout_below="@+id/question"/>
+
 
         <RadioButton android:id="@+id/radio_r3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="réponse 3"
+            android:paddingLeft="10dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"
@@ -55,12 +99,13 @@
             android:layout_alignLeft="@+id/radio_r1"
             android:layout_alignStart="@+id/radio_r1" />
     </RadioGroup>
-    <TextView android:id="@+id/radio_reponse"
+   <TextView android:id="@+id/radio_reponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:textSize="16dp"
+        android:textStyle="bold"
+       android:paddingLeft="10dp"
         android:textColor="@color/texteBlanc"
-        android:background="@color/blue"
         android:text="réponse 2"/>
 </LinearLayout>

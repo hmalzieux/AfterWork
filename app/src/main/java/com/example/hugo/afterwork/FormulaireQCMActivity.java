@@ -3,6 +3,10 @@ package com.example.hugo.afterwork;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,7 +72,7 @@ public class FormulaireQCMActivity extends AppCompatActivity {
         continuer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FormulaireQCMActivity.this,MainActivity.class));
+                startActivity(new Intent(FormulaireQCMActivity.this,ListQcmDoneActivity.class));
             }
         });
 
@@ -93,15 +97,21 @@ public class FormulaireQCMActivity extends AppCompatActivity {
                 View radioButton = question.findViewById(radioButtonID);
                 int idx = question.indexOfChild(radioButton);
                 RadioButton r = (RadioButton) question.getChildAt(idx);
+                for (int j = 0; j < question.getChildCount(); j++) {
+                    question.getChildAt(j).setEnabled(false);
+                }
                 String selectedtext = r.getText().toString();
+                String temp = reponse.getText().toString();
                 reponse.setVisibility(View.VISIBLE);
-                if (selectedtext.equals(reponse.getText().toString())) {
-                    reponse.setText("Bonne réponse !");
-                    reponse.setBackgroundResource(R.color.greenAlert);
+                if (selectedtext.equals(temp)) {
+                    reponse.setText("");
+                    r.setButtonDrawable(R.drawable.bouton_bonne_reponse);
                     bonne_rep++;
+
                 } else {
-                    reponse.setText("Mauvaise réponse !");
+                    reponse.setText("La bonne réponse est : " + temp);
                     reponse.setBackgroundResource(R.color.redAlert);
+                    r.setButtonDrawable(R.drawable.bouton_mauvaise_reponse);
                 }
             }
             myDb.addARepondu(new ARepondu(sharedPreferences.getInt("idUser", -1),Integer.parseInt(sharedPreferences.getString("idQcm", "")),(int)(bonne_rep * 10 / nbRadioGroup)));
