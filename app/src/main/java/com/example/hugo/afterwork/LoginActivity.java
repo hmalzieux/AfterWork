@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         myDb = new DatabaseHandler(this);
-        // Réinitialiser la BD
+        /* Réinitialiser la BD*/
         myDb.dropDB(myDb.getWritableDatabase());
         myDb.createTables(myDb.getWritableDatabase());
         myDb.defaultData();
@@ -197,7 +197,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         //Check si il existe
-        if(email != "@umontpellier.fr" && password != ""){
+        if(email != "@etu.umontpellier.fr" && password != ""){
             int idUtilisateur = myDb.getConnection(email, password);
             if (idUtilisateur != -1) {
                 SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
@@ -245,7 +245,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return (email.contains("@umontpellier.fr"));
+        return (email.contains("@etu.umontpellier.fr"));
     }
 
     private boolean isPasswordValid(String password) {

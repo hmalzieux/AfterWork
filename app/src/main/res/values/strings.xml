@@ -32,7 +32,7 @@
     <string name="profil">Profil</string>
     <string name="logout">Se déconnecter</string>
     <string name="text_filtre">Filtrées par : </string>
-    <string name="domaine">\@umontpellier.fr</string>
+    <string name="domaine">\@etu.umontpellier.fr</string>
     <string name="type_cours">Les types de cours</string>
     <string name="tds">TDs</string>
     <string name="tps">TPs</string>
@@ -59,4 +59,8 @@
     <string name="qcm_non_valide">Vous n\'avez pas validé toutes les questions !</string>
     <string name="list_qcm_vide">Aucun QCM disponible</string>
     <string name="list_cours_vide">Aucun cours disponible</string>
+    <string name="title_activity_cours">CoursActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="doc_pas_dispo">Ce document n\'est pas disponible</string>
+    <string name="bouton_play">Play</string>
 </resources>

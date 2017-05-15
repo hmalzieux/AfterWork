@@ -10,4 +10,5 @@
     <dimen name="text_size_small">16dp</dimen>
     <dimen name="text_size_large">28dp</dimen>
     <dimen name="text_size_extraLarge">30dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

@@ -6,7 +6,8 @@ public class Cours {
     private long idCours;
     private String libelle;
     private String typeCours;
-    private String contenu;
+    private String cheminDoc;
+    private String cheminVideo;
     private long idMatiere;
 
     // Empty constructor
@@ -14,11 +15,12 @@ public class Cours {
 
     }
     // constructor
-    public Cours(long idCours, String libelle, String typeCours, String contenu, long idMatiere){
+    public Cours(long idCours, String libelle, String typeCours, String cheminDoc, String cheminVideo, long idMatiere){
         this.idCours = idCours;
         this.libelle = libelle;
         this.typeCours = typeCours;
-        this.contenu = contenu;
+        this.cheminDoc = cheminDoc;
+        this.cheminVideo = cheminVideo;
         this.idMatiere = idMatiere;
     }
 
@@ -57,14 +59,24 @@ public class Cours {
         this.typeCours = typeCours;
     }
 
-     // getting contenu
-    public String getContenu(){
-        return this.contenu;
+    // getting contenu
+    public String getCheminDoc(){
+        return this.cheminDoc;
     }
 
     // setting contenu
-    public void setContenu(String contenu){
-        this.contenu = contenu;
+    public void setCheminDoc(String cheminDoc){
+        this.cheminDoc = cheminDoc;
+    }
+
+    // getting contenu
+    public String getCheminVideo(){
+        return this.cheminVideo;
+    }
+
+    // setting contenu
+    public void setCheminVideo(String cheminVideo){
+        this.cheminVideo = cheminVideo;
     }
 
     // getting idMatiere

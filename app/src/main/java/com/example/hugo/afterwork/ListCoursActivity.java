@@ -32,7 +32,7 @@ public class ListCoursActivity extends AppCompatActivity {
         }
 
         //BD
-        SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
 
         myDb = new DatabaseHandler(this);
         cours = myDb.getListCours(sharedPreferences.getInt("idUser", -1),filtre);
@@ -44,6 +44,9 @@ public class ListCoursActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("idCours",cours.get(position)[3]);
+                editor.commit();
                 startActivity(new Intent(ListCoursActivity.this,CoursActivity.class));
             }
         });

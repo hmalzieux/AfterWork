@@ -30,10 +30,6 @@ import java.util.ArrayList;
 
 public class FormulaireQCMActivity extends AppCompatActivity {
 
-    private Button Button;
-    private RadioButton RadioButton;
-    private View view;
-    private int note;
     private SharedPreferences sharedPreferences;
     private int nbRadioGroup;
     private ArrayList<String[]> contenu;
@@ -55,7 +51,6 @@ public class FormulaireQCMActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkResultats(nbRadioGroup)) {
-                    createAReppondu();
                     ScrollView scrollview;
                     scrollview = (ScrollView) findViewById(R.id.scrollView_qcm);
                     scrollview.pageScroll(View.FOCUS_UP);
@@ -72,7 +67,7 @@ public class FormulaireQCMActivity extends AppCompatActivity {
         continuer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FormulaireQCMActivity.this,ListQcmDoneActivity.class));
+                startActivity(new Intent(FormulaireQCMActivity.this,MainActivity.class));
             }
         });
 
@@ -119,10 +114,6 @@ public class FormulaireQCMActivity extends AppCompatActivity {
         return allSelected;
     }
 
-    private void createAReppondu() {
-
-    }
-
     private int createQuestions() {
         contenu = myDb.getQuestion(sharedPreferences.getString("idQcm", ""));
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -148,26 +139,5 @@ public class FormulaireQCMActivity extends AppCompatActivity {
             parent.addView(view, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
         }
         return contenu.size();
-    }
-
-    public void onRadioButtonClicked(View view) {
-
-        boolean checked = ((RadioButton) view).isChecked();
-
-        switch(view.getId()) {
-            case R.id.radio_r1:
-                if (checked)
-                    // Vérifie si c'est la bonne réponse avec la base de données
-                    //si bonne réponse alors incrémentation de note
-                    break;
-            case R.id.radio_r2:
-                if (checked)
-                    // Vérif bd
-                    break;
-            case R.id.radio_r3:
-                if (checked)
-                    // Vérif bd
-                    break;
-        }
     }
 }

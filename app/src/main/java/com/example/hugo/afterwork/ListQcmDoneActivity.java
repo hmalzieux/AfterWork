@@ -22,7 +22,6 @@ public class ListQcmDoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_qcm_done);
 
-        //BD
         SharedPreferences sharedPreferences = getSharedPreferences("idUser", Context.MODE_PRIVATE);
 
         myDb = new DatabaseHandler(this);

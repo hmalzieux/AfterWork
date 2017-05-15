@@ -36,7 +36,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_IDCOURS = "idCours";
     private static final String KEY_LIBELLECOURS = "libelleCours";
     private static final String KEY_TYPECOURS = "typeCours";
-    private static final String KEY_CONTENU = "contenu";
+    private static final String KEY_PATHDOCUMENT = "cheminDoc";
+    private static final String KEY_PATHVIDEO = "cheminVideo";
     private static final String KEY_IDUTILISATEUR = "idUtilisateur";
     private static final String KEY_NOM = "nom";
     private static final String KEY_PRENOM = "prenom";
@@ -92,7 +93,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_MATIERE_TABLE);
 
         String CREATE_COURS_TABLE = "CREATE TABLE " + TABLE_COURS + "("
-                + KEY_IDCOURS + " INTEGER PRIMARY KEY," + KEY_LIBELLECOURS + " TEXT, "+ KEY_TYPECOURS +" TEXT, " + KEY_CONTENU + " TEXT,"
+                + KEY_IDCOURS + " INTEGER PRIMARY KEY," + KEY_LIBELLECOURS + " TEXT, "+ KEY_TYPECOURS +" TEXT, "
+                + KEY_PATHDOCUMENT + " TEXT, "+KEY_PATHVIDEO + " TEXT, "
                 + KEY_IDMATIERE + " INTEGER NOT NULL, FOREIGN KEY ("+KEY_IDMATIERE+") REFERENCES " + TABLE_MATIERE + " ("+KEY_IDMATIERE+"));" + ")";
         db.execSQL(CREATE_COURS_TABLE);
 
@@ -149,6 +151,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Insertion des cours
         Log.d("Insert: ", "cours ..");
+        this.addCours(new Cours(1, "TP1 : les termites", "TPs", "", "", 4));
+        this.addCours(new Cours(2, "TP3 : WebService", "TPs", "", "", 1));
+        this.addCours(new Cours(3, "Video Ted conférence", "Cours", "", "", 5));
+        this.addCours(new Cours(4, "TD3 : la base de données sqlite", "TDs", "tp_sgbd2.pdf", "bac_sport", 6));
+        this.addCours(new Cours(5, "TD1 : les tables", "TDs", "tp_sgbd1.pdf", "", 6));
         this.addCours(new Cours(1, "Introduction", "Cours", "", 1));
         this.addCours(new Cours(1, "Patrons classiques", "Cours", "", 1));
         this.addCours(new Cours(1, "Cours RMI", "Cours", "", 1));
@@ -238,7 +245,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_LIBELLECOURS, cours.getLibelle());
         values.put(KEY_TYPECOURS,cours.getTypeCours());
-        values.put(KEY_CONTENU, cours.getContenu());
+        values.put(KEY_PATHDOCUMENT, cours.getCheminDoc());
+        values.put(KEY_PATHVIDEO, cours.getCheminVideo());
         values.put(KEY_IDMATIERE, cours.getIdMatiere());
 
         // Inserting Row
@@ -300,27 +308,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    public Cours getCours(long id) {
-        SQLiteDatabase db = this.getReadableDatabase();
+    public ArrayList<String> getCours(String id) {
+        String selectQuery = "SELECT "+KEY_LIBELLECOURS+", "+KEY_PATHDOCUMENT+", "+KEY_PATHVIDEO+
+                " FROM " + TABLE_COURS +" WHERE " + KEY_IDCOURS +" = "+ id;
 
-        Cursor cursor = db.query(TABLE_COURS, new String[] { KEY_IDCOURS,
-                        KEY_LIBELLECOURS, KEY_CONTENU, KEY_IDMATIERE}, KEY_IDCOURS + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
 
-        Cours cours = new Cours(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)));
+        Log.v("selectQuery",selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        ArrayList<String> cours = new ArrayList<String>();
 
+        if (cursor.moveToFirst()) {
+            do {
+                cours.add(0,cursor.getString(0));
+                cours.add(1,cursor.getString(1));
+                cours.add(2,cursor.getString(2));
+                break;
+            } while (cursor.moveToNext());
+        }
         return cours;
     }
 
 
     public ArrayList<String[]> getQuestion(String idQcm) {
         ArrayList<String[]> res = new ArrayList<String[]>();
-        // Select All Query
 
         String selectQuery = "SELECT "+KEY_TITREQUESTION+", "+KEY_REPONSE1+", "+KEY_REPONSE2+", "+KEY_REPONSE3+", "+KEY_REPONSEJUSTE+" FROM " + TABLE_QUESTION +" WHERE " + KEY_IDQCM +" = "+ idQcm;
-        Log.v("selectQuery",selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -399,7 +412,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 filtre_bd = " AND "+TABLE_MATIERE+"."+KEY_LIBELLEMATIERE+" = \""+filtre+"\"";
             }
         }
-        String selectQuery = "SELECT "+TABLE_COURS+"."+KEY_LIBELLECOURS+", "+TABLE_MATIERE+"."+KEY_LIBELLEMATIERE+", "+TABLE_COURS+"."+ KEY_TYPECOURS +" FROM "+ TABLE_COURS +", "+TABLE_UTILISATEUR +", "+TABLE_MATIERE
+        String selectQuery = "SELECT "+TABLE_COURS+"."+KEY_LIBELLECOURS+", "+TABLE_MATIERE+"."+KEY_LIBELLEMATIERE+", "+TABLE_COURS+"."+ KEY_TYPECOURS +", "+ TABLE_COURS+"."+KEY_IDCOURS+" FROM "+ TABLE_COURS +", "+TABLE_UTILISATEUR +", "+TABLE_MATIERE
                 +" WHERE " + TABLE_MATIERE+"."+KEY_IDSECTION+" = "+ TABLE_UTILISATEUR+"."+KEY_IDSECTION
                 +" AND " + TABLE_MATIERE+"."+KEY_IDMATIERE+" = "+ TABLE_COURS+"."+KEY_IDMATIERE
                 +filtre_bd
@@ -410,7 +423,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String[]> res= new ArrayList<String[]>();
         if (cursor.moveToFirst()) {
             do {
-                res.add(new String[]{cursor.getString(0),cursor.getString(1),cursor.getString(2)});
+                res.add(new String[]{cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3)});
             } while (cursor.moveToNext());
         }
         return res;
