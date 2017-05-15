@@ -151,42 +151,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Insertion des cours
         Log.d("Insert: ", "cours ..");
-        this.addCours(new Cours(1, "TP1 : les termites", "TPs", "", "", 4));
-        this.addCours(new Cours(2, "TP3 : WebService", "TPs", "", "", 1));
-        this.addCours(new Cours(3, "Video Ted conférence", "Cours", "", "", 5));
         this.addCours(new Cours(4, "TD3 : la base de données sqlite", "TDs", "tp_sgbd2.pdf", "bac_sport", 6));
-        this.addCours(new Cours(5, "TD1 : les tables", "TDs", "tp_sgbd1.pdf", "", 6));
-        this.addCours(new Cours(1, "Introduction", "Cours", "", 1));
-        this.addCours(new Cours(1, "Patrons classiques", "Cours", "", 1));
-        this.addCours(new Cours(1, "Cours RMI", "Cours", "", 1));
-        this.addCours(new Cours(1, "Intro .Net", "Cours", "", 1));
-        this.addCours(new Cours(1, "Intro C#", "Cours", "", 1));
-        this.addCours(new Cours(1, "Cours WS", "Cours", "", 1));
-        this.addCours(new Cours(1, "Cours WCF", "Cours", "", 1));
+        this.addCours(new Cours(5, "TD1 : les tables", "TDs", "tp_sgbd1.pdf", "bac_sport", 6));
+        this.addCours(new Cours(2, "Patrons classiques", "Cours", "tp_sgbd1.pdf", "", 1));
+        this.addCours(new Cours(3, "Cours RMI", "Cours", "tp_sgbd2.pdf", "", 1));
+        this.addCours(new Cours(4, "Intro .Net", "Cours", "tp_sgbd1.pdf", "bac_sport", 1));
+        this.addCours(new Cours(5, "Intro C#", "Cours", "tp_sgbd2.pdf", "bac_sport", 1));
+        this.addCours(new Cours(6, "Cours WS", "Cours", "tp_sgbd1.pdf", "", 1));
+        this.addCours(new Cours(7, "Cours WCF", "Cours", "tp_sgbd2.pdf", "", 1));
 
-        this.addCours(new Cours(1, "Cours1 : Recherche d'information", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 2: Introduction au KDD", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 3: Classification (Apprentissage supervisé)", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 4: Clustering", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 5 - Extraction de motifs - les règles d'associations", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 6: Text Mining ", "Cours", "", 2));
-        this.addCours(new Cours(1, "Cours 7: Ontology Learning and Named Entity Recognition", "Cours", "", 2));
+        this.addCours(new Cours(8, "Cours1 : Recherche d'information", "Cours", "", "", 2));
+        this.addCours(new Cours(9, "Cours 2: Introduction au KDD", "Cours", "tp_sgbd2.pdf", "", 2));
+        this.addCours(new Cours(10, "Cours 3: Classification (Apprentissage supervisé)", "Cours", "", "bac_sport", 2));
+        this.addCours(new Cours(11, "Cours 4: Clustering", "Cours", "tp_sgbd2.pdf", "", 2));
+        this.addCours(new Cours(12, "Cours 5 - Extraction de motifs - les règles d'associations", "Cours", "", "bac_sport", 2));
+        this.addCours(new Cours(13, "Cours 6: Text Mining ", "Cours", "tp_sgbd2.pdf", "", 2));
+        this.addCours(new Cours(14, "Cours 7: Ontology Learning and Named Entity Recognition", "Cours", "", "", 2));
 
-        this.addCours(new Cours(1, "TD RMI", "TDs", "", 1));
-        this.addCours(new Cours(1, "TP RMI", "TPs", "", 1));
-        this.addCours(new Cours(1, "TP WCF", "TPs", "", 1));
+        this.addCours(new Cours(15, "TD RMI", "TDs", "tp_sgbd2.pdf", "", 1));
+        this.addCours(new Cours(16, "TP RMI", "TPs", "", "", 1));
+        this.addCours(new Cours(17, "TP WCF", "TPs", "tp_sgbd2.pdf", "", 1));
 
-        this.addCours(new Cours(1, "TP1 : exercices d'initiation à Weka", "TPs", "", 2));
+        this.addCours(new Cours(18, "TP1 : exercices d'initiation à Weka", "TPs", "", "", 2));
 
 
 
         // Insertion des utilisateurs
         Log.d("Insert: ", "utilisateurs ..");
-        this.addUtilisateur(new Utilisateur(1, "Dupond", "Pierre", "pierre.dupond@umontpellier.fr", "azerty", 1));
-        this.addUtilisateur(new Utilisateur(2, "Calude", "Jean", "jean.calude@umontpellier.fr", "azerty", 2));
-        this.addUtilisateur(new Utilisateur(3, "Durand", "Gérard", "gerard.durand@umontpellier.fr", "azerty", 3));
-        this.addUtilisateur(new Utilisateur(4, "Baudelaire", "Charles", "charles.baudelaire@umontpellier.fr", "azerty", 4));
-        this.addUtilisateur(new Utilisateur(5, "Admin", "admin", "@umontpellier.fr", "aaaaaa", 1));
+        this.addUtilisateur(new Utilisateur(1, "Dupond", "Pierre", "pierre.dupond@etu.umontpellier.fr", "azerty", 1));
+        this.addUtilisateur(new Utilisateur(2, "Calude", "Jean", "jean.calude@etu.umontpellier.fr", "azerty", 2));
+        this.addUtilisateur(new Utilisateur(3, "Durand", "Gérard", "gerard.durand@etu.umontpellier.fr", "azerty", 3));
+        this.addUtilisateur(new Utilisateur(4, "Baudelaire", "Charles", "charles.baudelaire@etu.umontpellier.fr", "azerty", 4));
+        this.addUtilisateur(new Utilisateur(5, "Admin", "admin", "@etu.umontpellier.fr", "aaaaaa", 1));
 
         // Insertion des qcm
         Log.d("Insert: ", "qcm ..");
